@@ -1,21 +1,21 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "33a08200-e0c5-4d73-9dd7-527a91598c14": {
-        "id": "33a08200-e0c5-4d73-9dd7-527a91598c14",
+      "9e12df49-4354-47f8-a4ce-d74727056905": {
+        "id": "9e12df49-4354-47f8-a4ce-d74727056905",
         "parent": null,
         "name": "pp",
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "2cea08a8-6fbe-46b6-83eb-afd77498b08e"
+          "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f"
         ],
         "isRemovable": false,
         "filePath": "pp"
       },
-      "2cea08a8-6fbe-46b6-83eb-afd77498b08e": {
-        "id": "2cea08a8-6fbe-46b6-83eb-afd77498b08e",
-        "parent": "33a08200-e0c5-4d73-9dd7-527a91598c14",
+      "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f": {
+        "id": "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f",
+        "parent": "9e12df49-4354-47f8-a4ce-d74727056905",
         "name": "function.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
@@ -36,8 +36,8 @@
           }
         ]
       },
-      "4075cef9-28bb-4f48-b4dd-84ac93c72500": {
-        "id": "4075cef9-28bb-4f48-b4dd-84ac93c72500",
+      "132c301a-a41b-4c74-b7a4-814c47e394ab": {
+        "id": "132c301a-a41b-4c74-b7a4-814c47e394ab",
         "parent": null,
         "name": "index.js",
         "type": "JS_FILE",
@@ -49,11 +49,11 @@
       }
     },
     "deletedFiles": [],
-    "rootNode": "33a08200-e0c5-4d73-9dd7-527a91598c14",
+    "rootNode": "9e12df49-4354-47f8-a4ce-d74727056905",
     "openFiles": [
-      "2cea08a8-6fbe-46b6-83eb-afd77498b08e"
+      "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f"
     ],
-    "currentFileId": "2cea08a8-6fbe-46b6-83eb-afd77498b08e",
+    "currentFileId": "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f",
     "resources": {
       "http-trigger": {
         "name": "http-trigger",
@@ -74,10 +74,10 @@
     "projectName": "pp",
     "projectDescription": "",
     "projectVersion": "1.0.0",
-    "projectRegion": "asia-southeast1",
+    "projectRegion": "us-east1",
     "platform": "GCP",
     "platformRegions": {},
-    "lastSave": 1559890827960
+    "lastSave": 1559894890105
   },
   "VCS_STATE": {
     "provider": "GitHub",
