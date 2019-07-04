@@ -1,6 +1,9 @@
 {
   "name": "pp",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "slappforge-sdk-redis": "0.0.3",
+    "aws-sdk": "2.176.0"
+  },
   "devDependencies": {}
 }

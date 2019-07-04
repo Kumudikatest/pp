@@ -1,28 +1,29 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "9e12df49-4354-47f8-a4ce-d74727056905": {
-        "id": "9e12df49-4354-47f8-a4ce-d74727056905",
+      "5971bdb5-ff0a-423e-add5-132b71302e52": {
+        "id": "5971bdb5-ff0a-423e-add5-132b71302e52",
         "parent": null,
         "name": "pp",
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f"
+          "beb74637-ecf6-4cd9-8eba-6d4897c55859",
+          "ac15b0ba-bab7-4852-88fb-93560ec995b0"
         ],
         "isRemovable": false,
         "filePath": "pp"
       },
-      "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f": {
-        "id": "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f",
-        "parent": "9e12df49-4354-47f8-a4ce-d74727056905",
+      "beb74637-ecf6-4cd9-8eba-6d4897c55859": {
+        "id": "beb74637-ecf6-4cd9-8eba-6d4897c55859",
+        "parent": "5971bdb5-ff0a-423e-add5-132b71302e52",
         "name": "function.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
         "filePath": "pp/function.js",
-        "code": "exports.handler = function(request, response) {\n    \n    response.send({\"message\": \"Successfully executed\"});\n}",
+        "code": "let AWS = require('aws-sdk');\nconst cognito_idp = new AWS.CognitoIdentityServiceProvider();\n\nexports.handler = function (request, response) {\n\n        cognito_idp.listUsers({\n            UserPoolId: \"us-east-1_D10y3fy0o\",\n            Limit: 10\n        }, function (error, data) {\n            if (error) {\n                // implement error handling logic here\n                console.log(error);\n                throw error;\n            }\n            else {\n                console.log(error);\n            }\n        });\n\n    response.send({ \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8",
           "timeout": 60,
@@ -34,10 +35,18 @@
             "resourceName": "http-trigger",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "48e1c5ec-b3f3-46b1-bcc0-dbe4ccd8a030": {
+            "id": "48e1c5ec-b3f3-46b1-bcc0-dbe4ccd8a030",
+            "name": "Unnamed event",
+            "functionId": "beb74637-ecf6-4cd9-8eba-6d4897c55859",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
       },
-      "132c301a-a41b-4c74-b7a4-814c47e394ab": {
-        "id": "132c301a-a41b-4c74-b7a4-814c47e394ab",
+      "0404fd21-4f13-4bca-a275-d7751982d09b": {
+        "id": "0404fd21-4f13-4bca-a275-d7751982d09b",
         "parent": null,
         "name": "index.js",
         "type": "JS_FILE",
@@ -46,28 +55,345 @@
         "isRemovable": false,
         "filePath": "index.js",
         "code": "// This file is used to register all your cloud functions in GCP.\n// DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\nexports.ppfunction = require(\"./pp/function.js\").handler;"
+      },
+      "ac15b0ba-bab7-4852-88fb-93560ec995b0": {
+        "id": "ac15b0ba-bab7-4852-88fb-93560ec995b0",
+        "parent": "5971bdb5-ff0a-423e-add5-132b71302e52",
+        "name": "ClusterManager.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "pp/ClusterManager.js",
+        "code": "module.exports = function() {\n    this.clusters = [];\n\n    this.clusters[\"\"] = {\n        host: process.env.EndPoint_redis,\n        port: 6379,\n        clusterModeEnabled: false\n    };\n};"
       }
     },
     "deletedFiles": [],
-    "rootNode": "9e12df49-4354-47f8-a4ce-d74727056905",
+    "rootNode": "5971bdb5-ff0a-423e-add5-132b71302e52",
     "openFiles": [
-      "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f"
+      "beb74637-ecf6-4cd9-8eba-6d4897c55859"
     ],
-    "currentFileId": "1c1ae9a1-738f-49f4-a6ff-51870ca6d84f",
+    "currentFileId": "beb74637-ecf6-4cd9-8eba-6d4897c55859",
     "resources": {
       "http-trigger": {
         "name": "http-trigger",
         "type": "http-trigger",
         "config": {}
+      },
+      "cognitotest": {
+        "name": "cognitotest",
+        "type": "CognitoIdentityServiceProvider",
+        "config": {
+          "mode": 1,
+          "name": "test",
+          "arn": "arn:aws:cognito-idp:us-east-1:318300609668:userpool/us-east-1_D10y3fy0o",
+          "userPool": {
+            "Id": "us-east-1_D10y3fy0o",
+            "Name": "test",
+            "LambdaConfig": {},
+            "Policies": {
+              "PasswordPolicy": {
+                "MinimumLength": 8,
+                "RequireUppercase": true,
+                "RequireLowercase": true,
+                "RequireNumbers": true,
+                "RequireSymbols": true
+              }
+            },
+            "SmsVerificationMessage": "Your verification code is {####}. ",
+            "EmailVerificationMessage": "Your verification code is {####}. ",
+            "EmailVerificationSubject": "Your verification code",
+            "VerificationMessageTemplate": {
+              "SmsMessage": "Your verification code is {####}. ",
+              "EmailMessage": "Your verification code is {####}. ",
+              "EmailSubject": "Your verification code",
+              "DefaultEmailOption": "CONFIRM_WITH_CODE"
+            },
+            "SmsAuthenticationMessage": "Your authentication code is {####}. ",
+            "MfaConfiguration": "OFF",
+            "EmailConfiguration": {},
+            "UserPoolTags": {},
+            "AdminCreateUserConfig": {
+              "AllowAdminCreateUserOnly": false,
+              "UnusedAccountValidityDays": 7,
+              "InviteMessageTemplate": {
+                "SMSMessage": "Your username is {username} and temporary password is {####}. ",
+                "EmailMessage": "Your username is {username} and temporary password is {####}. ",
+                "EmailSubject": "Your temporary password"
+              }
+            },
+            "SchemaAttributes": [
+              {
+                "Name": "sub",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": false,
+                "Required": true,
+                "StringAttributeConstraints": {
+                  "MinLength": "1",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "name",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "given_name",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "family_name",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "middle_name",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "nickname",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "preferred_username",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "profile",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "picture",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "website",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "email",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": true,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "email_verified",
+                "AttributeDataType": "Boolean",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false
+              },
+              {
+                "Name": "gender",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "birthdate",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "10",
+                  "MaxLength": "10"
+                }
+              },
+              {
+                "Name": "zoneinfo",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "locale",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "phone_number",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "phone_number_verified",
+                "AttributeDataType": "Boolean",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false
+              },
+              {
+                "Name": "address",
+                "AttributeDataType": "String",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "StringAttributeConstraints": {
+                  "MinLength": "0",
+                  "MaxLength": "2048"
+                }
+              },
+              {
+                "Name": "updated_at",
+                "AttributeDataType": "Number",
+                "DeveloperOnlyAttribute": false,
+                "Mutable": true,
+                "Required": false,
+                "NumberAttributeConstraints": {
+                  "MinValue": "0"
+                }
+              }
+            ]
+          }
+        }
       }
     },
     "customTemplate": {
       "dialect": null,
       "definitions": {}
     },
-    "envVariables": [],
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_REGION",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_ACCESS_KEY_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_SECRET_ACCESS_KEY",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
     "packageJSON": {
-      "dependencies": {}
+      "dependencies": {
+        "slappforge-sdk-redis": {
+          "name": "slappforge-sdk-redis",
+          "language": "javascript",
+          "version": "0.0.3",
+          "dev": false,
+          "notRemovable": false
+        },
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": false,
+          "notRemovable": false
+        }
+      }
     }
   },
   "PROJECT_META": {
@@ -76,8 +402,10 @@
     "projectVersion": "1.0.0",
     "projectRegion": "us-east1",
     "platform": "GCP",
-    "platformRegions": {},
-    "lastSave": 1559894890105
+    "platformRegions": {
+      "AWS": "us-east-1"
+    },
+    "lastSave": 1562227056305
   },
   "VCS_STATE": {
     "provider": "GitHub",
