@@ -9,8 +9,7 @@
         "isDirectory": true,
         "children": [
           "be216b03-3923-4cb0-9bf5-31510e7c5bc2",
-          "2d740e6c-9dc3-4f03-87ae-92d9f1fb821f",
-          "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4"
+          "2d740e6c-9dc3-4f03-87ae-92d9f1fb821f"
         ],
         "isRemovable": false,
         "filePath": "pp"
@@ -40,19 +39,21 @@
         "name": "new1",
         "type": "DIRECTORY",
         "isDirectory": true,
-        "children": [],
+        "children": [
+          "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4"
+        ],
         "isRemovable": true,
         "filePath": "pp/new1"
       },
       "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4": {
         "id": "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4",
-        "parent": "ee9425fa-2424-4db6-8e8e-3e95de991854",
+        "parent": "2d740e6c-9dc3-4f03-87ae-92d9f1fb821f",
         "name": "new1.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "pp/new1.js",
+        "filePath": "pp/new1/new1.js",
         "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
@@ -65,7 +66,7 @@
       }
     },
     "deletedFiles": [
-      "pp/new1/new1.js"
+      "pp/new1.js"
     ],
     "rootNode": "ee9425fa-2424-4db6-8e8e-3e95de991854",
     "openFiles": [
@@ -99,14 +100,19 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564744335968
+    "lastSave": 1564744449585
   },
   "VCS_STATE": {
     "provider": "GitHub",
     "repo": {
       "name": "pp",
       "url": "https://github.com/Kumudikatest/pp",
-      "branches": []
+      "branches": [
+        {
+          "name": "master",
+          "hash": "d01132cb3ca5bc5d661b6ffbd289cb21e93cf6db"
+        }
+      ]
     }
   }
 }
