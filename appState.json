@@ -8,20 +8,20 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "6b67da36-5f8b-4e33-a334-22456e2f39c5"
+          "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3"
         ],
         "isRemovable": false,
         "filePath": "pp"
       },
       "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3": {
         "id": "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
-        "parent": "6b67da36-5f8b-4e33-a334-22456e2f39c5",
+        "parent": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
         "name": "lambda.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "pp/sub1/lambda.js",
+        "filePath": "pp/lambda.js",
         "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
@@ -31,22 +31,11 @@
           "layers": []
         },
         "triggers": []
-      },
-      "6b67da36-5f8b-4e33-a334-22456e2f39c5": {
-        "id": "6b67da36-5f8b-4e33-a334-22456e2f39c5",
-        "parent": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
-        "name": "sub1",
-        "type": "DIRECTORY",
-        "isDirectory": true,
-        "children": [
-          "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3"
-        ],
-        "isRemovable": true,
-        "filePath": "pp/sub1"
       }
     },
     "deletedFiles": [
-      "pp/sub1/new1.js"
+      "pp/sub1/lambda.js",
+      "pp/sub1"
     ],
     "rootNode": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
     "openFiles": [
@@ -79,7 +68,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564744071702
+    "lastSave": 1564744143155
   },
   "VCS_STATE": {
     "provider": "GitHub",
@@ -89,7 +78,7 @@
       "branches": [
         {
           "name": "master",
-          "hash": "9d5e832a953fa10206222efaf845afe603c5f0a2"
+          "hash": "0721160eb689c367b582ffd8af4a876bc210b9e0"
         }
       ]
     }
