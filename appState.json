@@ -1,29 +1,28 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "9662466b-1b63-4d83-aedc-a74968221c48": {
-        "id": "9662466b-1b63-4d83-aedc-a74968221c48",
+      "6b822b77-6f26-42d1-87ba-947afd6afe2e": {
+        "id": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
         "parent": null,
         "name": "pp",
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "ca93f2b5-3b87-4c34-bd46-e5f9c79b658c",
-          "4738912e-ddf0-4416-bcfb-e32cfc8da6ee"
+          "6b67da36-5f8b-4e33-a334-22456e2f39c5"
         ],
         "isRemovable": false,
         "filePath": "pp"
       },
-      "ca93f2b5-3b87-4c34-bd46-e5f9c79b658c": {
-        "id": "ca93f2b5-3b87-4c34-bd46-e5f9c79b658c",
-        "parent": "9662466b-1b63-4d83-aedc-a74968221c48",
+      "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3": {
+        "id": "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
+        "parent": "6b67da36-5f8b-4e33-a334-22456e2f39c5",
         "name": "lambda.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "pp/lambda.js",
-        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n    // You can pass the existing connection to this function.\n    // A new connection will be created if it's not present as the third param \n    // You must always end/destroy the DB connection after it's used\n    rds.query({\n        instanceIdentifier: 'k',\n        query: 'INSERT INTO Test (ID);',\n        inserts: [1]\n    }, function (error, results, connection) {\n        if (error) {\n            console.log(\"Error occurred\");\n            throw error;\n        } else {\n            console.log(\"Success\")\n            console.log(results);\n        }\n\n        connection.end();\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "filePath": "pp/sub1/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -33,68 +32,49 @@
         },
         "triggers": []
       },
-      "4738912e-ddf0-4416-bcfb-e32cfc8da6ee": {
-        "id": "4738912e-ddf0-4416-bcfb-e32cfc8da6ee",
-        "parent": "9662466b-1b63-4d83-aedc-a74968221c48",
-        "name": "ConnectionManager.js",
-        "type": "JS_FILE",
+      "6b67da36-5f8b-4e33-a334-22456e2f39c5": {
+        "id": "6b67da36-5f8b-4e33-a334-22456e2f39c5",
+        "parent": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
+        "name": "sub1",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
+          "2d0a0073-1914-41fd-9506-58308bd974eb"
+        ],
+        "isRemovable": true,
+        "filePath": "pp/sub1"
+      },
+      "2d0a0073-1914-41fd-9506-58308bd974eb": {
+        "id": "2d0a0073-1914-41fd-9506-58308bd974eb",
+        "parent": "6b67da36-5f8b-4e33-a334-22456e2f39c5",
+        "name": "new1.js",
+        "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "pp/ConnectionManager.js",
-        "code": "module.exports = function() {\n    this.dbConnections = [];\n\n    this.dbConnections[\"k\"] = {\n        host: process.env.EndPoint_rdsK,\n        port: process.env.Port_rdsK,\n        user: process.env.User_rdsK,\n        password: process.env.Password_rdsK,\n        database: \"k\"\n    };\n};"
-      }
-    },
-    "deletedFiles": [],
-    "rootNode": "9662466b-1b63-4d83-aedc-a74968221c48",
-    "openFiles": [
-      "ca93f2b5-3b87-4c34-bd46-e5f9c79b658c"
-    ],
-    "currentFileId": "ca93f2b5-3b87-4c34-bd46-e5f9c79b658c",
-    "resources": {
-      "rds-k": {
-        "name": "rds-k",
-        "type": "RDS",
+        "filePath": "pp/sub1/new1.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
-          "editMode": false,
-          "operation": 0,
-          "rdsInstance": {
-            "rdsEngineType": "mysql",
-            "rdsEdition": "",
-            "rdsInstanceSpec": {
-              "dbInstanceClass": "db.t2.micro",
-              "dbLicenseModel": "general-public-license",
-              "dbEngineVersion": "5.7.19"
-            },
-            "rdsSetting": {
-              "instanceIdentifier": "k",
-              "masterUsername": "k",
-              "masterPassword": "Test#123"
-            },
-            "rdsDBOptions": {
-              "dbName": "k",
-              "dbPort": "1234"
-            },
-            "rdsInstanceArn": "",
-            "Host": "",
-            "doesExist": false,
-            "initializationQuery": "CREATE TABLE Test (ID int);",
-            "alreadyDeployed": false
-          },
-          "rdsInstanceResources": [],
-          "projectRegion": "us-east-1",
-          "mode": 0,
-          "additionalFiles": [],
-          "params": {
-            "query": "INSERT INTO Test (ID);",
-            "inserts": "1"
-          },
-          "isGlobalEditMode": false,
-          "enableInject": true,
-          "isNewFromGlobal": false
-        }
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
       }
     },
+    "deletedFiles": [
+      "pp/lambda.js"
+    ],
+    "rootNode": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
+    "openFiles": [
+      "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
+      "2d0a0073-1914-41fd-9506-58308bd974eb"
+    ],
+    "currentFileId": "2d0a0073-1914-41fd-9506-58308bd974eb",
+    "resources": {},
     "customTemplate": {
       "dialect": null,
       "definitions": {}
@@ -110,15 +90,7 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {
-        "slappforge-sdk-aws": {
-          "name": "slappforge-sdk-aws",
-          "language": "javascript",
-          "version": "0.0.5",
-          "dev": false,
-          "notRemovable": false
-        }
-      }
+      "dependencies": {}
     }
   },
   "PROJECT_META": {
@@ -128,7 +100,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564638966406
+    "lastSave": 1564743980616
   },
   "VCS_STATE": {
     "provider": "GitHub",
