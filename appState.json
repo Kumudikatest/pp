@@ -39,41 +39,20 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
-          "2d0a0073-1914-41fd-9506-58308bd974eb"
+          "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3"
         ],
         "isRemovable": true,
         "filePath": "pp/sub1"
-      },
-      "2d0a0073-1914-41fd-9506-58308bd974eb": {
-        "id": "2d0a0073-1914-41fd-9506-58308bd974eb",
-        "parent": "6b67da36-5f8b-4e33-a334-22456e2f39c5",
-        "name": "new1.js",
-        "type": "JS_LAMBDA",
-        "isDirectory": false,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "pp/sub1/new1.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
-        "config": {
-          "runtime": "nodejs8.10",
-          "handler": "handler",
-          "timeout": 60,
-          "memory": 128,
-          "layers": []
-        },
-        "triggers": []
       }
     },
     "deletedFiles": [
-      "pp/lambda.js"
+      "pp/sub1/new1.js"
     ],
     "rootNode": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
     "openFiles": [
-      "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
-      "2d0a0073-1914-41fd-9506-58308bd974eb"
+      "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3"
     ],
-    "currentFileId": "2d0a0073-1914-41fd-9506-58308bd974eb",
+    "currentFileId": "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
     "resources": {},
     "customTemplate": {
       "dialect": null,
@@ -100,14 +79,19 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564743980616
+    "lastSave": 1564744071702
   },
   "VCS_STATE": {
     "provider": "GitHub",
     "repo": {
       "name": "pp",
       "url": "https://github.com/Kumudikatest/pp",
-      "branches": []
+      "branches": [
+        {
+          "name": "master",
+          "hash": "9d5e832a953fa10206222efaf845afe603c5f0a2"
+        }
+      ]
     }
   }
 }
