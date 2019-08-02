@@ -1,21 +1,23 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "6b822b77-6f26-42d1-87ba-947afd6afe2e": {
-        "id": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
+      "ee9425fa-2424-4db6-8e8e-3e95de991854": {
+        "id": "ee9425fa-2424-4db6-8e8e-3e95de991854",
         "parent": null,
         "name": "pp",
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3"
+          "be216b03-3923-4cb0-9bf5-31510e7c5bc2",
+          "2d740e6c-9dc3-4f03-87ae-92d9f1fb821f",
+          "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4"
         ],
         "isRemovable": false,
         "filePath": "pp"
       },
-      "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3": {
-        "id": "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
-        "parent": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
+      "be216b03-3923-4cb0-9bf5-31510e7c5bc2": {
+        "id": "be216b03-3923-4cb0-9bf5-31510e7c5bc2",
+        "parent": "ee9425fa-2424-4db6-8e8e-3e95de991854",
         "name": "lambda.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
@@ -31,17 +33,46 @@
           "layers": []
         },
         "triggers": []
+      },
+      "2d740e6c-9dc3-4f03-87ae-92d9f1fb821f": {
+        "id": "2d740e6c-9dc3-4f03-87ae-92d9f1fb821f",
+        "parent": "ee9425fa-2424-4db6-8e8e-3e95de991854",
+        "name": "new1",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "pp/new1"
+      },
+      "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4": {
+        "id": "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4",
+        "parent": "ee9425fa-2424-4db6-8e8e-3e95de991854",
+        "name": "new1.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "pp/new1.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
       }
     },
     "deletedFiles": [
-      "pp/sub1/lambda.js",
-      "pp/sub1"
+      "pp/new1/new1.js"
     ],
-    "rootNode": "6b822b77-6f26-42d1-87ba-947afd6afe2e",
+    "rootNode": "ee9425fa-2424-4db6-8e8e-3e95de991854",
     "openFiles": [
-      "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3"
+      "be216b03-3923-4cb0-9bf5-31510e7c5bc2",
+      "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4"
     ],
-    "currentFileId": "2d8001f9-8d8f-4d61-b7bd-e7c3f60fdac3",
+    "currentFileId": "c36b2118-0c22-4c64-96d7-88b1cf9fa9f4",
     "resources": {},
     "customTemplate": {
       "dialect": null,
@@ -68,19 +99,14 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564744143155
+    "lastSave": 1564744335968
   },
   "VCS_STATE": {
     "provider": "GitHub",
     "repo": {
       "name": "pp",
       "url": "https://github.com/Kumudikatest/pp",
-      "branches": [
-        {
-          "name": "master",
-          "hash": "0721160eb689c367b582ffd8af4a876bc210b9e0"
-        }
-      ]
+      "branches": []
     }
   }
 }
